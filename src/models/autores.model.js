@@ -18,8 +18,6 @@ const selectById = async (idAutor) => {
 const insert = async ({nombre, email, imagen}) => {
     const [result] = await db.execute('insert into autores (nombre, email, imagen) values (?, ?, ?)', [nombre, email, imagen]);
 
-    console.log(result);
-
     return result;
 }
  

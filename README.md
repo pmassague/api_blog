@@ -1,115 +1,62 @@
-# Express Base Application for API Creation
+# API Blog
 
-This is a basic Express application template designed to help you create APIs
-quickly. It includes essential configurations and setup for starting an Express
-server.
+## Recuperar todos los autores
 
-> **⚠️ Note:** Since `v2.0.0` this template uses **ES Modules (ESM)** syntax
-> (`import`/`export`). If you need the legacy CommonJS version
-> (`require`/`module.exports`), clone the `v1.5.0-cjs` tag:
->
-> ```bash
-> git clone -b v1.5.0-cjs https://github.com/mariogiron/express-init-template.git project-name
-> ```
+Method: GET
+Url: /api/autores
+Headers: XXXX
+Body: XXXX
 
-## Features
+Response: 
+- Un array con todos los autores
 
-- Basic Express server setup with **ES Modules**
-- CORS enabled
-- Native `.env` loading (`--env-file-if-exists`), no `dotenv`
-- Native file watching (`--watch`), no `nodemon`
+## Recuperar un autor a través de su ID
 
-## Getting Started
+Method: GET
+Url: /api/autores/IDAUTOR
+Headers: XXXX
+Body: XXXX
 
-### Prerequisites
+Response:
+- Objeto con los datos del autor
 
-Ensure you have Node.js (v22.9 or later) and npm installed on your machine. You can download them
-from [Node.js official website](https://nodejs.org/).
+## Crear un nuevo autor
 
-### Installation
+Method: POST
+Url: /api/autores
+Headers: XXXX
+Body: nombre, email, imagen
 
-1. **Clone the repository:**
+Response:
+- Objeto con los datos del nuevo autor
 
-```bash
-git clone https://github.com/mariogiron/express-init-template.git project-name
-```
 
-2. **Navigate to the project directory:**
+## Recuperar todos los posts incluyendo los datos del autor de cada post
 
-```bash
-cd project-name
-```
+Method: GET
+Url: /api/posts
+Headers: XXXX
+Body: XXXX
 
-3. **Install the dependencies:**
+Response: 
+- Un array con todos los posts
 
-```bash
-npm install
-```
+## Recuperar un post a través de su ID incluyendo los datos del autor de cada post
 
-### Environment Configuration
+Method: GET
+Url: /api/posts/IDPOST
+Headers: XXXX
+Body: XXXX
 
-Create a `.env` file in the root of the project and configure your environment
-variables. An example `.env` file might look like this:
+Response:
+- Objeto con los datos del post
 
-```
-PORT=3000
-```
+## Recuperar todos los posts para un autor (incluyendo los datos del autor)
 
-### Running the Application
+Method: GET
+Url: /api/posts
+Headers: XXXX
+Body: XXXX
 
-#### Start the server
-
-Start the server by running:
-
-```bash
-npm start
-```
-
-The server will start and listen on the port defined in your `.env` file, or
-default to port 3000 if not specified.
-
-#### Development mode
-
-To start the server in development mode with Node's native `--watch`, which will
-automatically restart the server on file changes, run:
-
-```bash
-npm run dev
-```
-
-### Available Scripts
-
-- **start**: Runs `node --env-file-if-exists=.env index.js` to start the server.
-- **dev**: Runs `node --env-file-if-exists=.env --watch index.js` to start the
-  server in development mode with automatic restarts on file changes.
-
-### Project Structure
-
-    ├── src
-    │   ├── app.js          # Express app configuration
-    │   ├── models          # Data models
-    │   ├── controllers     # Route controllers
-    │   ├── routes          # Application routes
-    ├── .env                # Environment variables
-    ├── index.js            # Server creation and configuration
-    ├── package.json        # Project metadata and dependencies
-
-### Adding Routes
-
-Routes are imported using ESM syntax. Remember to include the `.js` extension:
-
-```js
-// src/app.js
-import apiRoutes from "./routes/api.routes.js";
-app.use("/api", apiRoutes);
-```
-
-### Contributing
-
-Feel free to submit issues and pull requests to improve the project. For major
-changes, please open an issue first to discuss what you would like to change.
-
-### License
-
-This project is licensed under the MIT License - see the LICENSE file for
-details.
+Response: 
+- Un array con todos los posts

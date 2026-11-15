@@ -1,13 +1,31 @@
 // Requests to test the API from VS Code (REST Client extension)
 @baseUrl = http://localhost:3000
 
-### GET example
-GET {{baseUrl}}/api
+### GET posts
+GET {{baseUrl}}/api/posts
 
-### POST example
+
+### POST un post
 POST {{baseUrl}}/api
 Content-Type: application/json
 
 {
     "name": "example"
+}
+
+### GET autor
+GET {{baseUrl}}/api/autores
+
+### GET By ID
+GET {{baseUrl}}/api/autores/10
+
+
+### POST autor
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+    "nombre": "Bruno López",
+    "email": "bruno.lopez@vidasana.es",
+    "imagen": "https://pravatar.cc3"
 }

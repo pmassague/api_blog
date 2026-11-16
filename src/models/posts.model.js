@@ -16,13 +16,6 @@ const selectById = async (idPost) => {
     return result[0];
 }
 
-const selectByAutorId = async (idAutor) => {
-    const [result] = await db.execute('SELECT p.*, a.nombre, a.email, a.imagen FROM posts p INNER JOIN autores a ON p.autor_id = a.id where p.autor_id = ?', [idAutor]);
-
-    return result;
-}
-
-
 const insert = async ({titulo, descripcion, categoria, autor_id}) => {
     const [result] = await db.execute('insert into posts (titulo, descripcion, categoria, autor_id) values (?, ?, ?, ?)', [titulo, descripcion, categoria, autor_id]);
 
@@ -31,5 +24,5 @@ const insert = async ({titulo, descripcion, categoria, autor_id}) => {
  
 
 export {
-    selectAll, selectById, selectByAutorId, insert
+    selectAll, selectById, insert
 };

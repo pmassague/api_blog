@@ -1,4 +1,4 @@
-import { insert, selectAll, selectById } from "../models/autores.model.js";
+import { insert, selectAll, selectByAutorId, selectById } from "../models/autores.model.js";
 
 const getAll = async (req, res) => {
     const autores = await selectAll();
@@ -6,27 +6,20 @@ const getAll = async (req, res) => {
 }
 
 const getById = async (req, res) => {
-    const { idAutor } = req.params;
+    res.json(req.autor);
+}
 
-    const autor = await selectById(idAutor);
-
-    if (!autor) {
-        return res.status(404).json({
-            message: 'El autor con ese ID no existe'
-        })
-
-    }
-
-    res.json(autor);
+const getByAutorId = async (req, res) => {
+    const posts = await selectByAutorId(req.autor.id);
+    res.json(posts);
 }
 
 const create = async (req, res) => {
     const result = await insert(req.body);
     const autor = await selectById(result.insertId);
-    res.json(autor);
-
+    res.status(201).json(autor);
 }
 
 export {
-    getAll, getById, create
+    getAll, getById, getByAutorId, create
 }

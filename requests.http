@@ -5,35 +5,34 @@
 GET {{baseUrl}}/api/posts
 
 ### GET post by ID 
-GET {{baseUrl}}/api/posts/2
-
-### GET posts by Autor ID 
-GET {{baseUrl}}/api/posts/autor/2
+GET {{baseUrl}}/api/posts/1
 
 ### POST una publicación (post) en el blog
 POST {{baseUrl}}/api/posts
 Content-Type: application/json
 
 {
-    "titulo": "titulo_prueba",
-    "descripcion": "desc_prueba",
-    "categoria": "NUTRICION",
-    "autor_id": "1"
+  "titulo": "Recetas rápidas de cenas ligeras y nutritivas",
+  "descripcion": "Cinco ideas equilibradas con verduras de temporada y proteína magra para descansar mejor por la noche.",
+  "categoria": "NUTRICION",
+  "autor_id": 1
 }
 
-### GET autor
+### GET autores
 GET {{baseUrl}}/api/autores
 
 ### GET autor by ID
-GET {{baseUrl}}/api/autores/1
-
+GET {{baseUrl}}/api/autores/5
 
 ### POST autor
 POST {{baseUrl}}/api/autores
 Content-Type: application/json
 
 {
-    "nombre": "Bruno López",
-    "email": "bruno.lopez@vidasana.es",
-    "imagen": "https://pravatar.cc3"
+    "nombre": "Valeria Domínguez",
+    "email": "valeria.dominguez@vidasana.es",
+    "imagen": "https://randomuser.me/api/portraits/women/19.jpg"
 }
+
+### GET posts by Autor ID 
+GET {{baseUrl}}/api/autores/1/posts

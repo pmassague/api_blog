@@ -1,11 +1,13 @@
 import { Router } from "express";
-import { create, getAll, getById } from '../controllers/autores.controller.js';
+import { create, getAll, getByAutorId, getById } from '../controllers/autores.controller.js';
+import { checkAutorId, validaAutor } from "../middlewares/autores.middleware.js";
 
 const router = Router();
 
 router.get('/', getAll);
-router.get('/:idAutor', getById);
+router.get('/:idAutor', checkAutorId, getById);
+router.get('/:idAutor/posts', checkAutorId, getByAutorId);
 
-router.post('/', create);
+router.post('/', validaAutor, create);
 
 export default router;

@@ -5,7 +5,7 @@
 GET {{baseUrl}}/api/posts
 
 ### GET post by ID 
-GET {{baseUrl}}/api/posts/1
+GET {{baseUrl}}/api/posts/3
 
 ### POST una publicación (post) en el blog
 POST {{baseUrl}}/api/posts
@@ -35,4 +35,4 @@ Content-Type: application/json
 }
 
 ### GET posts by Autor ID 
-GET {{baseUrl}}/api/autores/1/posts
+GET {{baseUrl}}/api/autores/2/posts

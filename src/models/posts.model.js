@@ -7,6 +7,7 @@ const selectAll = async () => {
     return result;
 }
 
+//select un post específico con los datos del autor
 const selectById = async (idPost) => {
     const [result] = await db.execute('SELECT p.*, a.nombre, a.email, a.imagen FROM posts p INNER JOIN autores a ON p.autor_id = a.id where p.id = ?', [idPost]);
 
@@ -16,6 +17,7 @@ const selectById = async (idPost) => {
     return result[0];
 }
 
+//insert into para crear un nuevo post
 const insert = async ({titulo, descripcion, categoria, autor_id}) => {
     const [result] = await db.execute('insert into posts (titulo, descripcion, categoria, autor_id) values (?, ?, ?, ?)', [titulo, descripcion, categoria, autor_id]);
 

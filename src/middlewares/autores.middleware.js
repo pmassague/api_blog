@@ -1,8 +1,6 @@
 import { selectByEmail, selectById } from "../models/autores.model.js";
 
-/*  Middleware que comprueba si el idAutor existe
-    Utiliza req.params si es llamada desde autores.routes
-    Utiliza req.body si es llamada desde posts.routes */
+/*  Comprueba si el idAutor existe, utiliza req.params si es llamada desde autores.routes y req.body si es llamada desde posts.routes */
 const checkAutorId = async (req, res, next) => {
     const idAutor = req.params.idAutor || req.body?.autor_id;
 
@@ -23,7 +21,7 @@ const checkAutorId = async (req, res, next) => {
     next();
 };
 
-// Validar datos al crear un autor (POST /api/autores)
+// Valida datos al crear un autor (POST /api/autores)
 const validaAutor = async (req, res, next) => {
     const { nombre, email, imagen } = req.body || {};
 
@@ -39,7 +37,7 @@ const validaAutor = async (req, res, next) => {
         });
     }
 
-    // Valida email
+    // Valida email con regular expression
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
         return res.status(400).json({

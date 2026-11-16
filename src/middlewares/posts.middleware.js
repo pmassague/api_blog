@@ -3,7 +3,7 @@ const CATEGORIAS_VALIDAS = ['NUTRICION', 'EJERCICIO', 'MINDFULNESS', 'NATURALEZA
 const validatePost = (req, res, next) => {
     const { titulo, descripcion, categoria, autor_id } = req.body || {};
 
-    // Validar titulo (obligatorio y máximo 100 caracteres)
+    // Valida titulo (obligatorio y máximo 100 caracteres)
     if (!titulo || typeof titulo !== 'string' || titulo.trim() === '') {
         return res.status(400).json({
             message: 'El campo titulo es obligatorio.'
@@ -15,7 +15,7 @@ const validatePost = (req, res, next) => {
         });
     }
 
-    // Validar descripcion (obligatorio y máximo 255 caracteres)
+    // Valida descripcion (obligatorio y máximo 255 caracteres)
     if (!descripcion || typeof descripcion !== 'string' || descripcion.trim() === '') {
         return res.status(400).json({
             message: 'El campo descripcion es obligatorio.'
@@ -27,7 +27,7 @@ const validatePost = (req, res, next) => {
         });
     }
 
-    // Validar y normalizar categoria contra el ENUM (acepta tildes y minúsculas)
+    // Valida y normaliza categoria contra el ENUM (acepta tildes y minúsculas)
     if (!categoria || typeof categoria !== 'string' || categoria.trim() === '') {
         return res.status(400).json({
             message: `El campo categoria es obligatorio. Valores permitidos: ${CATEGORIAS_VALIDAS.join(', ')}`
@@ -46,7 +46,7 @@ const validatePost = (req, res, next) => {
         });
     }
 
-    // Validar formato básico de autor_id (su existencia en la BBDD la comprueba checkAutorId)
+    // Valida formato básico de autor_id (su existencia en la BBDD la comprueba checkAutorId)
     if (!autor_id || isNaN(Number(autor_id))) {
         return res.status(400).json({
             message: 'El campo autor_id es obligatorio y debe ser un número válido.'
